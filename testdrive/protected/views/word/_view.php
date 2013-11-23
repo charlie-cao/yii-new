@@ -2,49 +2,34 @@
 /* @var $this WordController */
 /* @var $data Word */
 ?>
-<table>
-    <tr>
-        <td>单词</td>
-        <td>音标</td>
-        <td>词意</td>
-        <td>记录</td>
-    </tr>
-</table>
-<div class="view">
+<tr>
 
-	<b>id:</b>
+        <td>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('new_word')); ?>:</b>
+        </td>
+        
+        <td>
 	<?php echo CHtml::encode($data->new_word); ?>
-	<br />
+        </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ipa')); ?>:</b>
+        <td>
 	<?php echo CHtml::encode($data->ipa); ?>
-	<br />
+        </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('from_lgt')); ?>:</b>
+        <td>
 	<?php echo CHtml::encode($data->from_lgt); ?>
-	<br />
+        </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('to_lgt')); ?>:</b>
+        <td>
 	<?php echo CHtml::encode($data->to_lgt); ?>
-	<br />
+        </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('trans')); ?>:</b>
+        <td>
 	<?php echo CHtml::encode($data->trans); ?>
-	<br />
+        </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('memo')); ?>:</b>
+        <td>
 	<?php echo CHtml::encode($data->memo); ?>
-	<br />
+        </td>
 
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('remember')); ?>:</b>
-	<?php echo CHtml::encode($data->remember); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</tr>
