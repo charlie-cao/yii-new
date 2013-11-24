@@ -26,35 +26,23 @@
                     <a class="navbar-brand" href="#"><?php echo CHtml::encode($this->pageTitle); ?></a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">单词列表</a></li>
-                        <li><a href="#about">新增单词</a></li>
-                        <li><a href="#contact">关于</a></li>
-                    </ul>
+                    <?php
+                    $this->widget('zii.widgets.CMenu', array(
+                        'htmlOptions' => array('class' => 'nav ace-nav'),
+                        'items' => array(
+                            array('label' => '单词列表', 'url' => array('/site/index')),
+                            array('label' => '新增单词', 'url' => array('/site/contact')),
+                            array('label' => '关于', 'url' => array('/site/page', 'view' => 'about')),
+                            array('label' => '登录', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+                            array('label' => '退出 (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+                        ),
+                    ));
+                    ?>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
+        
         <div class="container">
-
-
-            <div id="header">
-                <div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-            </div><!-- header -->
-
-            <div id="mainmenu">
-                <?php
-                $this->widget('zii.widgets.CMenu', array(
-                    'items' => array(
-                        array('label' => 'Home', 'url' => array('/site/index')),
-                        array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-                        array('label' => 'Contact', 'url' => array('/site/contact')),
-                        array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
-                    ),
-                ));
-                ?>
-            </div><!-- mainmenu -->
-
             <?php if (isset($this->breadcrumbs)): ?>
                 <?php
                 $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -62,9 +50,7 @@
                 ));
                 ?><!-- breadcrumbs -->
             <?php endif ?>
-
             <?php echo $content; ?>
-
         </div><!-- page -->
 
     </body>
